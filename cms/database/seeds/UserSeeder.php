@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -11,12 +13,12 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $user = \App\Models\User::where("email", "admin@3forcom.com")->first();
+        $user = User::where("email", "nongsan@laptrinh.com")->first();
         if(!$user){
             $arr = [
                 'name' => 'Admin',
-                'email' => 'admin@3forcom.com',
-                "password" => \Hash::make("123456"),
+                'email' => 'nongsan@laptrinh.com',
+                "password" => Hash::make("123456"),
                 "active" => 1,
                 "active_code" => uniqid()
             ];

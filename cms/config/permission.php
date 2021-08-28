@@ -168,13 +168,13 @@ return [
         ]
     ],
 
-    'type' => [
+    'product-types' => [
         'model' => 'Project Type',
         'permissions' => [
-            'admin.type.index' => 'Access',
-            'admin.type.create' => 'Create',
-            'admin.type.edit' => 'Edit',
-            'admin.type.destroy' => 'Delete',
+            'admin.product.types.index' => 'Access',
+            'admin.product.types.create' => 'Create',
+            'admin.product.types.edit' => 'Edit',
+            'admin.product.types.destroy' => 'Delete',
         ]
     ],
 

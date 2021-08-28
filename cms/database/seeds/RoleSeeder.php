@@ -16,8 +16,8 @@ class RoleSeeder extends Seeder
             $arr = [
                 'name' => 'Admin',
                 'slug' => ADMIN_ROLE,
-                'description' => '', // optional
-                'level' => 100, // optional, set to 1 by default level cao co permission level thap
+                'description' => '',
+                'level' => 100
             ];
             $admin = \App\Models\Role::create($arr);
 
@@ -30,8 +30,8 @@ class RoleSeeder extends Seeder
             $arr = [
                 'name' => 'User',
                 'slug' => 'user',
-                'description' => '', // optional
-                'level' => 1, // optional, set to 1 by default
+                'description' => '', 
+                'level' => 1
             ];
             \App\Models\Role::create($arr);
         }

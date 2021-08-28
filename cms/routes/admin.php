@@ -21,23 +21,11 @@ Route::group(
                 Route::get('get-theme', 'MenuItemController@getTheme')->name('get.theme');
                 Route::post('menu-item-sort', 'MenuItemController@sort')->name('admin.menu.item.sort');
 
-                // Customer
-                resourceAdmin('customer', 'CustomerController', 'customer');
-
                 // Banner
                 resourceAdmin('banner', 'BannerController', 'banner');
 
-                // Sibor Rates
-                resourceAdmin('sibor-rates', 'SiborRatesController', 'siborrates');
-
                 // Logo Partner
                 resourceAdmin('partner', 'LogoPartnerController', 'logopartner');
-
-                // Guides
-                resourceAdmin('guides', 'GuidesController', 'guides');
-
-                // Guides Category
-                resourceAdmin('guides-category', 'GuidesCategoryController', 'guides.category');
 
                 // News
                 resourceAdmin('news', 'NewsController', 'news');
@@ -45,66 +33,14 @@ Route::group(
                 // News Category
                 resourceAdmin('news-category', 'NewsCategoryController', 'news.category');
 
-                // Mortgage Rates
-                resourceAdmin('mortgage-rates', 'MortgageController', 'mortgage');
-
-                // Review
-                resourceAdmin('review', 'ReviewController', 'review');
-
-                // District
-                resourceAdmin('district', 'DistrictController', 'district');
-
-                // Testimonials
-                resourceAdmin('testimonials', 'TestimonialsController', 'testimonials');
-
-                // Tenure
-                resourceAdmin('tenure', 'TenureController', 'tenure');
-
-                // Purpose
-                resourceAdmin('purpose', 'PurposeController', 'purpose');
-
-                // Direction
-                resourceAdmin('direction', 'DirectionController', 'direction');
-
-                // Budgets
-                resourceAdmin('budgets', 'BudgetsController', 'budgets');
-
-                // Project Type
-                resourceAdmin('type', 'TypeController', 'type');
-
-                Route::get('project/sort', 'ProjectController@sort')
-                    ->name('project.sort');
-                Route::put('project/update-sort', 'ProjectController@sortUpdate')
-                    ->name('project.sort.update');
-                Route::get('news/create-data-test', 'NewsController@storeDataTest')
-                    ->name('news.data.test');
-                Route::get('guides/create-data-test', 'GuidesController@storeDataTest')
-                    ->name('guides.data.test');
                 // Project
-                resourceAdmin('project', 'ProjectController', 'project');
-
-                // Link Report
-                resourceAdmin('linkreport', 'LinkReportController', 'linkreport');
-
-                // Project Floor Category
-                resourceAdmin('floor-category', 'FloorCategoryController', 'floorcategory');
-
-                // Project Floor Type
-                resourceAdmin('floor-type', 'FloorTypeController', 'floortype');
-
-                // Contact
-                resourceAdmin('schedule', 'ScheduleController', 'schedule');
+                resourceAdmin('products-types', 'ProductTypeController', 'product.types');
 
                 // Contact
                 resourceAdmin('contact', 'ContactController', 'contact');
 
-                // Subscribe
-                resourceAdmin('subscribe', 'SubscribeController', 'subscribe');
-
                 // Page
                 resourceAdmin('themes', 'ThemeController', 'theme');
-
-                Route::post('subscribe-status', 'SubscribeController@updateStatus')->name('subscribe.status');
 
                 Route::get('pages/create/load-block', 'PageController@loadBlock')->name("admin.page.load.block")->middleware("permission:admin.page.create", 'permission:admin.page.edit');
 
