@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24.367" height="25" viewBox="0 0 24.367 25">
+  <g id="user" transform="translate(-6.485 0)">
+    <g id="Group_1394" data-name="Group 1394" transform="translate(8.686 14.393)">
+      <g id="Group_1393" data-name="Group 1393" transform="translate(0)">
+        <path id="Path_3379" data-name="Path 3379" d="M54.977,299.472a.519.519,0,0,0-.712-.179,9.834,9.834,0,0,0-4.5,6.1.519.519,0,1,0,1.009.242,8.789,8.789,0,0,1,4.021-5.456A.519.519,0,0,0,54.977,299.472Z" transform="translate(-49.753 -299.219)" fill="#fff"/>
+      </g>
+    </g>
+    <g id="Group_1396" data-name="Group 1396" transform="translate(15.123 13.33)">
+      <g id="Group_1395" data-name="Group 1395">
+        <path id="Path_3380" data-name="Path 3380" d="M187.126,273.589a9.819,9.819,0,0,0-2.265.264.519.519,0,1,0,.24,1.01,8.782,8.782,0,0,1,2.025-.236.519.519,0,0,0,0-1.038Z" transform="translate(-184.461 -273.589)" fill="#fff"/>
+      </g>
+    </g>
+    <g id="Group_1398" data-name="Group 1398" transform="translate(6.485)">
+      <g id="Group_1397" data-name="Group 1397" transform="translate(0)">
+        <path id="Path_3381" data-name="Path 3381" d="M29.4,16.5a4.962,4.962,0,0,0-3.457-1.455c-.083-.089-.167-.176-.253-.263a11.178,11.178,0,0,0-5.177-2.951,6.244,6.244,0,1,0-5.553,0,11.259,11.259,0,0,0-8.471,10.9.5.5,0,0,0,.5.5h15.09q.134.158.282.307A4.979,4.979,0,1,0,29.4,16.5ZM12.485,6.244a5.248,5.248,0,1,1,5.248,5.248A5.254,5.254,0,0,1,12.485,6.244Zm-4.992,16A10.245,10.245,0,0,1,24.666,15.2a4.976,4.976,0,0,0-3.248,7.045H7.493Z" transform="translate(-6.485)" fill="#fff"/>
+      </g>
+    </g>
+    <g id="Group_1400" data-name="Group 1400" transform="translate(23.42 17.536)">
+      <g id="Group_1399" data-name="Group 1399">
+        <path id="Path_3382" data-name="Path 3382" d="M366.018,374.2l1.424-1.424a.648.648,0,1,0-.916-.916l-1.424,1.424-1.424-1.424a.648.648,0,1,0-.916.916l1.424,1.424-1.424,1.424a.648.648,0,0,0,.916.917l1.424-1.424,1.424,1.424a.648.648,0,0,0,.917-.917Z" transform="translate(-362.572 -371.672)" fill="#282828"/>
+      </g>
+    </g>
+  </g>
+</svg>

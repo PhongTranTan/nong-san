@@ -1,0 +1,111 @@
+<?php
+return [
+    'sign_out' => 'Sign Out',
+    'profile' => 'Profile',
+    'dashboard' => 'Dashboard',
+    'news' => 'Holdings',
+    'news_list' => 'Holdings list',
+    'news_create' => 'Create holding',
+
+    'service' => 'Service',
+    'service_list' => 'Service list',
+    'service_create' => 'Create service',
+
+    'brochures' => 'Brochures',
+    'brochures_list' => 'Brochures list',
+    'brochures_create' => 'Create brochures',
+
+    'categories' => 'Categories',
+    'department' => 'Department',
+    'posts' => 'Inspiration stories',
+    'careers' => 'Careers',
+    'careers_list' => 'Careers list',
+    'create_career' => 'Create careers',
+    'applications' => 'Applications',
+    'products' => 'Products',
+    'products_list' => 'Products list',
+    'create_product' => 'Create product',
+    'branches' => 'Branches',
+    'contacts' => 'Contacts',
+    'register' => 'Follow',
+    'subscribe' => 'Subscribe',
+    'rfp' => 'Rfp',
+    'system' => 'System',
+    'customer' => 'Customer',
+    'event' => 'Event',
+    'event_category' => 'Event category',
+    'list_event' => 'List event',
+    'list_event_category' => 'List event category',
+    'create_event' => 'Create event',
+    'create_event_category' => 'Create event category',
+    'transaction' => 'Transaction',
+    'image360' => 'Image 360',
+    'pages' => 'Pages',
+    'pages_list' => 'Pages list',
+    'create_page' => 'Create page',
+    'faqs' => 'FAQs',
+    'faqs_list' => 'FAQs list',
+    'roles' => 'Roles',
+    'users' => 'Users',
+    'sliders' => 'Sliders',
+    'partners' => 'Partners',
+
+    'team' => 'Team',
+    'team_list' => 'Team list',
+    'team_create' => 'Create team',
+
+
+    'themes' => 'Themes',
+    'image_map' => 'Image map',
+
+    'general' => 'General',
+    'countries' => 'Countries',
+    'targets' => 'Targets',
+    'business' => 'Business',
+    'career_category' => 'Career categories',
+    'career_form' => 'Career forms',
+    'career_level' => 'Career levels',
+    'career_degree' => 'Career degrees',
+
+    'free_spaces' => 'Free spaces',
+    'book_spaces' => 'Reservation register',
+    'visit_registration' => 'Visit registration',
+    'faq_question' => 'Customer\'s question',
+    'gallery' => 'Photo/Video Library',
+    'catalogue' => 'Catalogue',
+    'catalogue_list' => 'Catalogue list',
+    'create_catalogue' => 'Create catalogue',
+
+    'projects'=>'Projects',
+    'project_list'=>'Projects list',
+    'project_category_list'=>'Project categories',
+
+    'contact' => 'Contact',
+    'contact_list' => 'Contact list',
+
+    'venue' => 'Venue',
+    'venue_category' => 'Venue category',
+
+    'list_venue' => 'List venue',
+    'list_venue_category' => 'List venue category',
+    'create_venue' => 'Create venue',
+    'create_venue_category' => 'Create venue category',
+
+    'course_category' => 'Course category',
+    'course_category_create' => 'Course category create',
+
+    'product_category' => 'Product category',
+    'product_category_create' => 'Product category create',
+
+    'class_type' => 'Class type',
+    'class_type_create' => 'Class type create',
+
+    'subject' => 'Subject type',
+    'subject_create' => 'Subject create',
+
+    'lecture' => 'Lecture',
+    'lecture_create' => 'Lecture create',
+
+    'review' => 'Review',
+    'review_create' => 'Review create',
+];

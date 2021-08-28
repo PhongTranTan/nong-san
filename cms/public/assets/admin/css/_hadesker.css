@@ -1,0 +1,9 @@
+.list-photos{
+    width: 100%;
+}
+.list-photos li{
+    width: 25%;
+}
+.list-photos li .box-image{
+    width: auto;
+}

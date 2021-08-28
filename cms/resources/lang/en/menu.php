@@ -1,0 +1,53 @@
+<?php
+return [
+    // menu
+    'home' => 'Home',
+    'about'=>'About',
+    'about_us'=>'About us',
+    'live'=>'Live',
+    'work'=>'Work',
+    'play' => 'Play',
+    'products' => 'Products',
+    '360' => 'Virtual 360',
+    'investment_advisory' => 'Investment Consulting',
+    'booking_space' => 'Reservation register',
+    'register_visiting' => 'Visit Registration',
+    'media' => 'Communication',
+    'communicate' => 'Communication - ',//noi chuoi trong breadscrum
+    'library_photo' => 'Photo Library',
+    'video_clip' => 'Video Clip',
+    'market_info' => 'Marketing Information',
+    'news' => 'News',
+    'e-link' => 'E-Link',
+    'faqs' => 'FAQs',
+    'e_brochure' => 'E-brochure',
+    'news_lhc' => 'LHC News',
+    'careers' => 'Careers',
+    'career_lhc' => 'LHC careers',
+    'career_investors' => 'investors',
+    'career_enviroment' => 'enviromental work',
+
+    'investment-consultancy' => 'Consulting',
+    'investment-incentives' => 'Incentives',
+    'service-one-gate' => 'One Stop Service',
+    'before-investment' => 'Before Investment',
+    'after-investment' => 'After Investment',
+    'consultancy-materials' => 'Consultancy Materials',
+    'regulations' => 'Regulations',
+    'legal-documents' => 'Legal Document',
+    'sustainable-development' => 'Sustainable development',
+    'technical-infrastructure' => 'Technical Infrastructure',
+    'social-infrastructure' => 'Social Infrastructure',
+    'service-support' => 'Supporting Service',
+    'utilities' => 'Utilities',
+    'advisory' => 'Advisory',
+
+    // Top
+    'e-brochure' => 'E-brochure',
+    'customers' => 'Customers',
+    'webinar' => 'Webinar',
+    'contact' => 'Contact',
+    'contact_us' => 'Contact us',
+    'location' => 'Location',
+    'services'=>'Services'
+];
