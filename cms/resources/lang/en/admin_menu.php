@@ -143,4 +143,7 @@ return [
 
     'product_type'=>'Product Types',
     'product_type_create' => 'Create Product Types',
+
+    'product'=>'Product',
+    'product_create' => 'Create Product'
 ];

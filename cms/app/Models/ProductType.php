@@ -40,6 +40,6 @@ class ProductType extends Model
 
     public function scopePosition($query)
     {
-        return $query->orderBy('position');
+        return $query->orderBy('display_order');
     }
 }

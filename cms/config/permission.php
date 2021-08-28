@@ -169,12 +169,22 @@ return [
     ],
 
     'product-types' => [
-        'model' => 'Project Type',
+        'model' => 'Product Type',
         'permissions' => [
             'admin.product.types.index' => 'Access',
             'admin.product.types.create' => 'Create',
             'admin.product.types.edit' => 'Edit',
             'admin.product.types.destroy' => 'Delete',
+        ]
+    ],
+
+    'product' => [
+        'model' => 'Product',
+        'permissions' => [
+            'admin.product.index' => 'Access',
+            'admin.product.create' => 'Create',
+            'admin.product.edit' => 'Edit',
+            'admin.product.destroy' => 'Delete',
         ]
     ],
 

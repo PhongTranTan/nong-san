@@ -1,107 +1,83 @@
-@extends('frontend.layouts.master')
-
-@push('style')
-<link href="{{ asset('assets/css/styles.css') }}" rel="stylesheet">
-@endpush
-
+@extends('themes.master')
 @section('content')
-<main class="wrapper">
-    <div class="page-internal-wrapper">
-        <!-- BREADCRUMB-->
-        <div class="breadcrumb-page">
-            <div class="container">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/" title="Homepage">Homepage</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Contact</li>
-                    </ol>
-                </nav>
+    <!-- Start All Title Box -->
+    <div class="all-title-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Contact Us</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active"> Contact Us </li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <section class="contact-page-section">
-            <div class="container">
-                <div class="contact-content">
-                    <div class="box-border">
-                        @if(!empty($blocks['CONTACT-US']) && $block = $blocks->get('CONTACT-US')->first())
-                        <h2 class="title big text-center"><span><span>{!! $block->name !!}</span></span></h2>
-                        <div class="title sub-title italic">{!! str_replace("\r\n","<br/>",$block->description) !!}</div>
-                        @endif
-                    </div>
-                    <div class="box-border">
-                        <div class="info-contact">
-                            <div class="item-contact">
-                                <i class="icon icon-mail-big"></i>
-                                @if(!empty($blocks['CONTACT-EMAIL']) && $block_email = $blocks->get('CONTACT-EMAIL')->first())
-                                <span class="font-weight-700">{!! $block_email->name !!}</span>
-                                @endif
-                            </div>
-                            <div class="item-contact">
-                                <i class="icon icon-call-big"></i>
-                                @if(!empty($blocks['CONTACT-PHONE']) && $block_phone = $blocks->get('CONTACT-PHONE')->first())
-                                <span class="font-weight-700">{!! $block_phone->name !!}</span>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-border">              
-                        <div class="form-style form-sub">
-                            <form class="form-validate" action="{{ route('contact.post') }}" method="post">
-                                {!! csrf_field() !!}
-                                <div class="form-line"><span class="input-group-addon">Name <span class="required">*</span></span>
-                                    <div class="has-input">
-                                        <input id="name" type="text" placeholder="Enter your name" required name="name">
-                                    </div>
-                                </div>
-                                <div class="form-line"><span class="input-group-addon">Email <span class="required">*</span></span>
-                                    <div class="has-input">
-                                        <input id="email" type="email" placeholder="Enter your email" name="email">
-                                    </div>
-                                </div>
-                                <div class="form-line"><span class="input-group-addon">Phone number <span class="required">*</span></span>
-                                    <div class="has-input">
-                                        <input id="phone" type="text" placeholder="Enter your phone number" minlength="8" pattern="[-+]?[0-9]*[.,]?[0-9]+" required name="phone">
-                                    </div>
-                                </div>
-                                <div class="form-line"><span class="input-group-addon">Message <span class="required">*</span></span>
-                                    <div class="has-input">
-                                        <textarea id="msg-contact" rows="4" placeholder="Enter your message" name="message"></textarea>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="other_data" value="{{ !empty(request()->get('issurer')) ? 'Issurer: '.request()->get('issurer') : NULL }}">
+    </div>
+    <!-- End All Title Box -->
 
-                                @if(\Session::has('success-contact'))
-                                <div id="success-subscribe">{!! \Session::get('success-contact') !!}</div>
-                                @endif
-
-                                <div class="form-line no-margin text-center a-center">
-                                    <button class="btn-nlp small blue" type="submit">Send</button>
+    <!-- Start Contact Us  -->
+    <div class="contact-box-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-sm-12">
+                    <div class="contact-form-right">
+                        <h2>GET IN TOUCH</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed odio justo, ultrices ac nisl sed, lobortis porta elit. Fusce in metus ac ex venenatis ultricies at cursus mauris.</p>
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
                                 </div>
-                            </form>
-                        </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Your Email" id="email" class="form-control" name="name" required data-error="Please enter your email">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="subject" name="name" placeholder="Subject" required data-error="Please enter your Subject">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <textarea class="form-control" id="message" placeholder="Your Message" rows="4" data-error="Write your message" required></textarea>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                    <div class="submit-button text-center">
+                                        <button class="btn hvr-hover" id="submit" type="submit">Send Message</button>
+                                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+				<div class="col-lg-4 col-sm-12">
+                    <div class="contact-info-left">
+                        <h2>CONTACT INFO</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent urna diam, maximus ut ullamcorper quis, placerat id eros. Duis semper justo sed condimentum rutrum. Nunc tristique purus turpis. Maecenas vulputate. </p>
+                        <ul>
+                            <li>
+                                <p><i class="fas fa-map-marker-alt"></i>Address: Michael I. Days 9000 <br>Preston Street Wichita,<br> KS 87213 </p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+1-888705770">+1-888 705 770</a></p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-envelope"></i>Email: <a href="mailto:contactinfo@gmail.com">contactinfo@gmail.com</a></p>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     </div>
-</main>
+    <!-- End Cart -->
 @endsection
-
-@section('footer')
-    @include('frontend.layouts.partials.footer')
-@endsection
-
-@section('footer-page')
-footer-page
-@endsection
-
-@section('button-bottom')
-<div class="container-fluid footer-btn" id="btn-foot">                       
-    <button class="btn-nlp blue" data-toggle="modal" data-target="#modalPopovers">Schedule Showflat Tour</button>
-    <button class="btn-nlp green" onclick="window.location.href='https://wa.me/{{ (isset($arr_setting['whatsapp'])) ? $arr_setting['whatsapp'] : '#' }}'">WhatsApp</button>
-</div>
-@endsection
-
-@push('script')
-<script src="{{ url('assets/js/library.js') }}"></script>
-<script async src="{{ url('assets/js/pages.js') }}"></script>    
-@endpush

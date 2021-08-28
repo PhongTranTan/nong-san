@@ -26,58 +26,35 @@ class ProductTypeRepositoryEloquent extends BaseRepository implements ProductTyp
     public function create(array $input)
     {
         $input['active'] = !empty($input['active']) ? 1 : 0;
-        
         $model = $this->model->create($input);
-
         if (!empty($input['metadata'])) {
             $model->metaCreateOrUpdate($input['metadata']);
         }
-
         $model->updateSlugTranslation();
-
         return $model;
     }
 
     public function update(array $input, $id)
     {
         $input['active'] = !empty($input['active']) ? 1 : 0;
-
         $model = $this->model->find($id);
-
         $model->update($input);
-
         if (!empty($input['metadata'])) {
             $model->metaCreateOrUpdate($input['metadata']);
         }
-
         $model->updateSlugTranslation();
-
-        $locales = \Config::get('translatable.locales');
-
-        foreach($locales as $locale){
-            if(!empty($input[$locale]['slug'])){
-                $slug = $input[$locale]['slug'];
-                \DB::table('project_translation')
-                    ->where('project_id', $id)->where('locale', $locale)
-                    ->update(['slug' => $slug]);
-            }
-        }
-
         return $model;
     }
 
     public function findBySlug($slug)
     {
         $model = $this->model->whereTranslation('slug', $slug)->first();
-
         return $model;
     }
 
     public function sortProject()
     {
-        $projects =  $this->model
-            ->orderBy('position')
-            ->get();
+        $projects =  $this->model->orderBy('display_order')->get();
         return $projects;
     }
 }

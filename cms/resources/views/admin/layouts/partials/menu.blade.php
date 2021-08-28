@@ -157,6 +157,28 @@
                     </li>
                 @endif
 
+                @if(in_array('admin.product.index', $composer_auth_permissions))
+                    <li class="{!! currentPageMenu(["*admin/products*"]) !!}">
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">account_balance</i>
+                            <span>{!! trans("admin_menu.product") !!}</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li class="{!! currentPageMenu(["*admin/products"]) !!}">
+                                <a href="{!! route("admin.product.index") !!}">
+                                    <span>{!! trans("admin_menu.product") !!}</span>
+                                </a>
+                            </li>
+                            <li class="{!! currentPageMenu(["*admin/products/create"]) !!}">
+                                <a href="{!! route("admin.product.create") !!}">
+                                    <span>{!! trans("admin_menu.product_create") !!}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
+
+
                 @if(in_array('admin.user.index', $composer_auth_permissions))
                     <li class="{!! currentPageMenu(["*admin/users*", '*admin/roles*']) !!}">
                         <a href="javascript:void(0);" class="menu-toggle">

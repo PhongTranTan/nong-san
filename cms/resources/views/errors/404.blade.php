@@ -3,7 +3,7 @@
 <!--text filter banner-->
 <html lang="vi">
     <head>
-        <title>NEW LAUNCH PORTAL</title>
+        <title></title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
@@ -52,7 +52,7 @@
                 <div class="container content-nopage">
                     <div class="row">
                         <div class="col-lg-7 content-left">
-                            <div class="img-bg page lazy" style="background-image:url({{ asset('images/404.png') }});"><img src="/images/404.png" alt=""></div>
+                            <div class="img-bg page lazy" style="background-image:url('images/banner-01.jpg');"><img src="/images/404.png" alt=""></div>
                         </div>
                         <div class="col-lg-4 offset-lg-1 content-right">
                             <div class="title">404</div>

@@ -26,5 +26,5 @@ return [
         'action' => 'Actions',
     ],
 
-    'product_type' => 'Success' 
+    'product_type' => 'product type' 
 ];

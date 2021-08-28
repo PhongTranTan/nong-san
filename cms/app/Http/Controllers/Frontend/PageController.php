@@ -66,6 +66,7 @@ class PageController extends Controller
             'parentBlocks',
             'parentBlocks.children'
         ];
+        // dd(1);
         $page = $this->page->findBySlug($slug);
         $blocks = collect();
         if ($page->parentBlocks->count()) {
@@ -96,7 +97,6 @@ class PageController extends Controller
                     'blocks', 
                     'metadata', 
                     'types', 
-                    'tenures', 
                     'districts'
                 ))->with($with);
         }
