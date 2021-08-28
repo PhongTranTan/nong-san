@@ -1,0 +1,5 @@
+[nlportal.3forcom.biz - Server]
+Domain: nlportal.3forcom.biz
+FTP: 128.199.71.195 - User/pass:  nlportal_3forcom_biz / 2snEbAbhSrYV
+PhpMyAdmin: http://ney.3forcom.biz/pma
+Databases:  nlportal_3forcom_biz / o+YMwmQF
