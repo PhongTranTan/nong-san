@@ -11,10 +11,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Site Metas -->
-        <title>Freshshop - Ecommerce Bootstrap 4 HTML Template</title>
-        <meta name="keywords" content="">
-        <meta name="description" content="">
-        <meta name="author" content="">
+        <title>Lập Trình Mạng</title>
+        <meta name="author" content="trantanphong">
+        @include('frontend.layouts.partials.seo')
 
         <!-- Site Icons -->
         <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
@@ -32,6 +31,11 @@
         <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
         <link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
         <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet">
+        <style>
+            .special-grid {
+                cursor: pointer;
+            }
+        </style>
 
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -46,11 +50,15 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="right-phone-box">
-                            <p>Call US :- <a href="#"> +84 96 1900 892</a></p>
+                            <p>Gọi VN :- <a href="#"> {{ $arr_setting['phone'] }}</a></p>
                         </div>
                         <div class="our-link">
                             <ul>
-                                <li><a href="{{ getPageUrlByCode('CONTACT') }}"><i class="fas fa-headset"></i> Contact Us</a></li>
+                                <li>
+                                    <a href="{{ getPageUrlByCode('CONTACT') }}">
+                                        <i class="fas fa-headset"></i> Liên Hệ
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -59,28 +67,28 @@
                             <div id="offer-box" class="carouselTicker">
                                 <ul class="offer-box">
                                     <li>
-                                        <i class="fab fa-opencart"></i> 20% off Entire Purchase Promo code: offT80
+                                        <i class="fab fa-opencart"></i> 20% Giảm giá
                                     </li>
                                     <li>
-                                        <i class="fab fa-opencart"></i> 50% - 80% off on Vegetables
+                                        <i class="fab fa-opencart"></i> 50% - 80% Giảm giá
                                     </li>
                                     <li>
-                                        <i class="fab fa-opencart"></i> Off 10%! Shop Vegetables
+                                        <i class="fab fa-opencart"></i> 10%! Giảm giá
                                     </li>
                                     <li>
-                                        <i class="fab fa-opencart"></i> Off 50%! Shop Now
+                                        <i class="fab fa-opencart"></i> 50%! Giảm giá
                                     </li>
                                     <li>
-                                        <i class="fab fa-opencart"></i> Off 10%! Shop Vegetables
+                                        <i class="fab fa-opencart"></i> 10%! Giảm giá
                                     </li>
                                     <li>
-                                        <i class="fab fa-opencart"></i> 50% - 80% off on Vegetables
+                                        <i class="fab fa-opencart"></i> 50% - 80% Giảm giá
                                     </li>
                                     <li>
-                                        <i class="fab fa-opencart"></i> 20% off Entire Purchase Promo code: offT30
+                                        <i class="fab fa-opencart"></i> 20% off Giảm giá
                                     </li>
                                     <li>
-                                        <i class="fab fa-opencart"></i> Off 50%! Shop Now 
+                                        <i class="fab fa-opencart"></i> Off 50%! Giảm giá
                                     </li>
                                 </ul>
                             </div>
@@ -98,29 +106,31 @@
                 <div class="container">
                     <!-- Start Header Navigation -->
                     <div class="navbar-header">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fa fa-bars"></i>
-                    </button>
-                        <a class="navbar-brand" href="index.html"><img src="images/logo.png" class="logo" alt=""></a>
+                        <button class="navbar-toggler" 
+                            type="button" 
+                            data-toggle="collapse" 
+                            data-target="#navbar-menu" 
+                            aria-controls="navbars-rs-food" 
+                            aria-expanded="false" 
+                            aria-label="Toggle navigation"
+                        >
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <a class="navbar-brand" href="/">
+                            <img src="{{ $arr_setting['logo'] }}" class="logo" alt="">
+                        </a>
                     </div>
                     <!-- End Header Navigation -->
-
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="navbar-menu">
                         <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-                            <li class="nav-item {{ request()->is('/') ? 'active' : '' }}"><a class="nav-link" href="/">Home</a></li>
-                            <li class="nav-item {{ request()->is('about-us') ? 'active' : '' }}"><a class="nav-link" href="{{ getPageUrlByCode('ABOUT') }}">About Us</a></li>
-                            <li class="nav-item {{ request()->is('contact') ? 'active' : '' }}"><a class="nav-link" href="{{ getPageUrlByCode('CONTACT') }}">Contact Us</a></li>
-                            <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Shop</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="shop.html">Categaries 1</a></li>
-                                    <li><a href="shop.html">Categaries 1</a></li>
-                                    <li><a href="shop.html">Categaries 1</a></li>
-                                    <li><a href="shop.html">Categaries 1</a></li>
-                                </ul>
-                            </li>
+                            @foreach($composer_menu as $item_menu)
+                                <li class="nav-item {{ request()->is($item_menu->url) ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ $item_menu->url }}">
+                                        {{ $item_menu->title }}
+                                    </a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
@@ -128,14 +138,11 @@
                     <!-- Start Atribute Navigation -->
                     <div class="attr-nav">
                         <ul>
-                            <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
-                            {{-- <li class="side-menu">
-                                <a href="#">
-                                    <i class="fa fa-shopping-bag"></i>
-                                    <span class="badge">3</span>
-                                    <p>My Cart</p>
+                            <li class="search">
+                                <a href="{{ getPageUrlByCode('SHOP') }}">
+                                    <i class="fa fa-search"></i>
                                 </a>
-                            </li> --}}
+                            </li>
                         </ul>
                     </div>
                     <!-- End Atribute Navigation -->
@@ -177,8 +184,14 @@
             <div class="container">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                    <input type="text" class="form-control" placeholder="Search">
-                    <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+                    <input type="text" 
+                        data-url="{{ getPageUrlByCode('SHOP') }}" 
+                        class="form-control search-key" 
+                        placeholder="Tìm kiếm"
+                    >
+                    <span class="input-group-addon close-search">
+                        <i class="fa fa-times"></i>
+                    </span>
                 </div>
             </div>
         </div>
@@ -187,93 +200,25 @@
         <!-- Start Instagram Feed  -->
         <div class="instagram-box">
             <div class="main-instagram owl-carousel owl-theme">
-                <div class="item">
-                    <div class="ins-inner-box">
-                        <img src="images/instagram-img-01.jpg" alt="" />
-                        <div class="hov-in">
-                            <a href="#"><i class="fab fa-instagram"></i></a>
+                @foreach ( json_decode($arr_setting['images_footer']) as $item)
+                    <div class="item">
+                        <div class="ins-inner-box">
+                            <img src="{{ $item->image }}" alt="" />
+                            <div class="hov-in">
+                                <a href="{{ getPageUrlByCode('SHOP') }}">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="item">
-                    <div class="ins-inner-box">
-                        <img src="images/instagram-img-02.jpg" alt="" />
-                        <div class="hov-in">
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="ins-inner-box">
-                        <img src="images/instagram-img-03.jpg" alt="" />
-                        <div class="hov-in">
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="ins-inner-box">
-                        <img src="images/instagram-img-04.jpg" alt="" />
-                        <div class="hov-in">
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="ins-inner-box">
-                        <img src="images/instagram-img-05.jpg" alt="" />
-                        <div class="hov-in">
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="ins-inner-box">
-                        <img src="images/instagram-img-06.jpg" alt="" />
-                        <div class="hov-in">
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="ins-inner-box">
-                        <img src="images/instagram-img-07.jpg" alt="" />
-                        <div class="hov-in">
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="ins-inner-box">
-                        <img src="images/instagram-img-08.jpg" alt="" />
-                        <div class="hov-in">
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="ins-inner-box">
-                        <img src="images/instagram-img-09.jpg" alt="" />
-                        <div class="hov-in">
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="ins-inner-box">
-                        <img src="images/instagram-img-05.jpg" alt="" />
-                        <div class="hov-in">
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
         <!-- End Instagram Feed  -->
         <!-- Start copyright  -->
         <div class="footer-copyright">
             <p class="footer-company">
-                &copy; 2021 
+                &copy; {{ $arr_setting['description_footer'] }} 
             </p>
         </div>
         <!-- End copyright  -->
@@ -283,6 +228,31 @@
         <script src="{{ asset('assets/js/jquery-3.2.1.min.js') }}"></script>
         <script src="{{ asset('assets/js/popper.min.js') }}"></script>
         <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+        <script>
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-Token': '{{ csrf_token() }}'
+                }
+            });
+        </script>
+        <script>
+            $(function() {
+                var keyWord = "";
+                $('.search-key').on('keyup', function () {
+                    keyWord = $('.search-key').val();
+                    console.log(keyWord);
+                });
+
+                $(document).on('keypress',function(e) {
+                    if(e.which == 13) {
+                        var urlAction = $('.search-key').attr('data-url');                      
+                        if (keyWord) {
+                            window.location.href = urlAction + '?key=' + keyWord;
+                        }
+                    }
+                });
+            });
+        </script>
         <!-- ALL PLUGINS -->
         <script src="{{ asset('assets/js/jquery.superslides.min.js') }}"></script>
         <script src="{{ asset('assets/js/bootstrap-select.js') }}"></script>
@@ -295,5 +265,6 @@
         <script src="{{ asset('assets/js/form-validator.min.js') }}"></script>
         <script src="{{ asset('assets/js/contact-form-script.js') }}"></script>
         <script src="{{ asset('assets/js/custom.js') }}"></script>
+        @stack('script')
     </body>
 </html>

@@ -1,124 +1,95 @@
-@extends('frontend.layouts.master')
-
-@push('style')
-    <link href="{{ asset('assets/css/styles.css') }}" rel="stylesheet">
-    <style>
-        .nl-tag {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            z-index: 6;
-            font-size: 13px; 
-        }
-        .nl-tag span {
-            display: inline-block;
-            max-width: 140px;
-            padding: 3px 15px;
-            overflow: hidden;
-            font-weight: 500;
-            color: #fff;
-            text-overflow: ellipsis;
-            text-transform: capitalize;
-            white-space: nowrap;
-            background-color: #c06014;
-            border: 2px solid #fff;
-            border-radius: 8px; 
-        }
-    </style>
-@endpush
-
+@extends('themes.master')
 @section('content')
-<main class="wrapper">
-    <div class="page-internal-wrapper">
-        <div class="breadcrumb-page">
-            <div class="container">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/" title="Homepage">Homepage</a></li>
-                        <li class="breadcrumb-item"><a href="{{ getPageUrlByCode('NEWS') }}" title="{{ getPageTitleByCode('NEWS') }}">{{ getPageTitleByCode('NEWS') }}</a>
-                        </li>
-                        <li class="breadcrumb-item active" aria-current="page">{{ $news->name }}</li>
-                    </ol>
-                </nav>
+    <!-- Start All Title Box -->
+    <div class="all-title-box" style="background: url('/images/all-bg-title.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Chi Tiết Tin Tức</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Trang Chủ</a></li>
+                        <li class="breadcrumb-item active">Chi Tiết Tin Tức</li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <!-- GUIDES : CONTENT    -->
-        <section class="guides-page-section section-margin mg-top-20">
-            <div class="container"> 
-                <div class="guides-content">
-                    <div class="inner-content-top">
-                        <div class="guides-title">{{ $news->name }}</div>
-                        <div class="external">
-                            <div class="icon-share-white">Share
-                                <div class="overlay-layer"></div>
-                                <div class="open-share">
-                                    <div class="group-share" data-json="{&quot;id&quot;:&quot;{{ $news->id }}&quot;, &quot;url&quot;: {&quot;fbLink&quot;:&quot;{{ route('frontend.news.detail', ['slug' => $news->slug]) }}&quot;, &quot;twLink&quot;:&quot;{{ route('frontend.news.detail', ['slug' => $news->slug]) }}&quot;, &quot;lindLink&quot;:&quot;{{ route('frontend.news.detail', ['slug' => $news->slug]) }}&quot;}}"></div>
-                                </div>
+    </div>
+    <!-- End All Title Box -->
+
+    <!-- Start Shop Detail  -->
+    <div class="shop-detail-box-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12">
+                    <div class="single-product-details">
+                        <h2>{!! $news->name !!}</h2>
+                        <h4>{{ $news->description }}</h4>
+                        <p>{!! $news->content !!}</p>
+                        <div class="add-to-btn">
+                            <div class="share-bar">
+                                <a class="btn hvr-hover" href="https://facebook.com"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                                <a class="btn hvr-hover" href="https://google.vn"><i class="fab fa-google-plus" aria-hidden="true"></i></a>
+                                <a class="btn hvr-hover" href="https://twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                                <a class="btn hvr-hover" href="https://pinterest"><i class="fab fa-pinterest-p" aria-hidden="true"></i></a>
+                                <a class="btn hvr-hover" href="https://whatapp.com"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
                             </div>
                         </div>
-                    </div>
-                    <p>Published date: {{ date("d/m/Y", strtotime($news->publish_date)) }}</p>
-                    <div class="inner-content">
-                        {!! $news->content !!}
                     </div>
                 </div>
-                @if(isset($related_news) && $related_news != null)
-                <section class="guides-section">
-                    <div class="container">
-                        <div class="box-border">
-                            <h2 class="title big text-center">
-                                Related <p>News</p>
-                            </h2>
-                        </div>
-                        <div class="slides-gallery">
-                            <div class="container">
-                                <div class="swiper-container">
-                                    <div class="swiper-wrapper">
-                                        @foreach($related_news as $related_news_item)
-                                        <a class="gallery-item swiper-slide" href="{{ route('frontend.news.detail',['slug' => $related_news_item->slug]) }}">
-                                            <div class="nl-tag">
-                                                <span>{{ $related_news_item->newsCategory->name }}</span>
-                                            </div>
-                                            <div class="img-star img-bg" style="background-image:url({{ $related_news_item->images }})">
-                                                <img src="{{ $related_news_item->images }}" alt="{{ $related_news_item->title }}">
-                                                <div class="dark-layer"></div>
-                                                <div class="dark-layer-bottom">
-                                                    <div class="title gd-dotdotdot">{{ $related_news_item->title }}</div>
-                                                    <div class="desc dotdotdot">{{ $related_news_item->description }}</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        @endforeach 
+            </div>
+            @if($newsRela->count() > 0)
+            <div class="row my-5">
+                <div class="col-lg-12">
+                    <div class="title-all text-center">
+                        <h1>Tin Tức Liên Quan</h1>
+                        <p>Tin Tức liên quan nổi bật</p>
+                    </div>
+                    <div class="featured-products-box owl-carousel owl-theme">
+                        @foreach ($newsRela as $newsItem)
+                            <div class="item" style="cursor: pointer" 
+                                data-url="{{ route('news.detail', ['slug' => $newsItem->slug]) }}"
+                            >
+                                <div class="products-single fix">
+                                    <div class="box-img-hover">
+                                        <img src="{{ $newsItem->images ?? 'images/img-pro-01.jpg' }}" class="img-fluid" alt="Image">
+                                        <div class="mask-icon">
+                                            <ul>
+                                                <li>
+                                                    <a href="#" data-toggle="tooltip" data-placement="right" title="View">
+                                                        <i class="fas fa-eye"></i>
+                                                    </a>
+                                                </li>    
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="why-text">
+                                        <h4>{{ $newsItem->name }}</h4>
+                                        <p>{!! $newsItem->description !!}</p>
                                     </div>
                                 </div>
-                                <div class="swiper-scrollbar"></div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
-                </section>
-                @endif
+                </div>
             </div>
-        </section>
+            @endif
+        </div>
     </div>
-</main>
+    <!-- End Cart -->
 @endsection
-
-@section('footer')
-    @include('frontend.layouts.partials.footer')
-@endsection
-
-@section('footer-page')
-footer-page
-@endsection
-
-@section('button-bottom')
-<div class="container-fluid footer-btn" id="btn-foot">                       
-    <button class="btn-nlp blue" data-toggle="modal" data-target="#modalPopovers">Schedule Showflat Tour</button>
-    <button class="btn-nlp green" onclick="window.location.href='https://wa.me/{{ (isset($arr_setting['phone'])) ? $arr_setting['phone'] : '#' }}'">WhatsApp</button>
-</div>
-@endsection
-
 @push('script')
-<script src="{{ url('assets/js/library.js') }}"></script>
-<script async src="{{ url('assets/js/pages.js') }}"></script>     
+    <script>
+        $(function() {
+            $('.blog-box').on('click', function () {
+                var $url = $(this).attr('data-url');
+                window.location.href = $url;
+            });
+
+            $('.item').on('click', function () {
+                var $url = $(this).attr('data-url');
+                window.location.href = $url;
+            });
+        });
+        
+    </script>
 @endpush

@@ -2,11 +2,12 @@ $("#contactForm").validator().on("submit", function (event) {
     if (event.isDefaultPrevented()) {
         // handle the invalid form...
         formError();
-        submitMSG(false, "Did you fill in the form properly?");
+        submitMSG(false, "Bạn cần nhập đầy đủ thông tin trước khi gửi?");
     } else {
         // everything looks good!
-        event.preventDefault();
-        submitForm();
+        // event.preventDefault();
+        // submitForm();
+        $("#contactForm").unbind('submit').submit();
     }
 });
 
@@ -17,11 +18,10 @@ function submitForm(){
     var email = $("#email").val();
     var msg_subject = $("#msg_subject").val();
     var message = $("#message").val();
-
-
+    var urlAction = $('#action-contact').val();
     $.ajax({
         type: "POST",
-        url: "php/form-process.php",
+        url: urlAction,
         data: "name=" + name + "&email=" + email + "&msg_subject=" + msg_subject + "&message=" + message,
         success : function(text){
             if (text == "success"){

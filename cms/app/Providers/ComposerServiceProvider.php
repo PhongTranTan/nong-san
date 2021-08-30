@@ -57,7 +57,8 @@ class ComposerServiceProvider extends ServiceProvider
         });
         View::composer(
             [
-                'frontend.layouts.partials.header'
+                'frontend.*',
+                'themes.*'
             ], function ($view) {
             $menu = MenuItem::tree(0, 'header');
             $view->with('composer_menu', $menu);

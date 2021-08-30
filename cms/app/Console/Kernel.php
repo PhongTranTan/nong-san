@@ -2,11 +2,11 @@
 
 namespace App\Console;
 
-use App\Console\Commands\ClearThumbnails;
-use App\Console\Commands\ExportBranchToXmlConsole;
-use App\Console\Commands\UpdateStatusOfJobConsole;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Console\Commands\CreateNews;
+use App\Console\Commands\CreateProducts;
+use App\Console\Commands\CreateContacts;
 
 class Kernel extends ConsoleKernel
 {
@@ -16,9 +16,9 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        ExportBranchToXmlConsole::class,
-        UpdateStatusOfJobConsole::class,
-        ClearThumbnails::class
+        CreateNews::class,
+        CreateProducts::class,
+        CreateContacts::class
     ];
 
     /**
@@ -30,7 +30,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // Run cron job every day at 23:30 to update (end day)
-        $schedule->command('command:update_job_status')->dailyAt("23:30");
+        
     }
 
     /**

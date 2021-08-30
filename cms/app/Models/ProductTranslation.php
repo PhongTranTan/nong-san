@@ -11,7 +11,8 @@ class ProductTranslation extends Model
         'locale',
         'name',
         'slug',
-        'description'
+        'description',
+        'content'
     ];
 
     public $timestamps = false;

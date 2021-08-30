@@ -178,6 +178,22 @@
                     </li>
                 @endif
 
+                @if(in_array('admin.contact.index', $composer_auth_permissions))
+                    <li class="{!! currentPageMenu(["*admin/contact*"]) !!}">
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">contact_mail</i>
+                            <span>{!! trans("admin_menu.contact") !!}</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li class="{!! currentPageMenu(["*admin/contact"]) !!}">
+                                <a href="{!! route("admin.contact.index") !!}">
+                                    <span>{!! trans("admin_menu.contact") !!}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
+
 
                 @if(in_array('admin.user.index', $composer_auth_permissions))
                     <li class="{!! currentPageMenu(["*admin/users*", '*admin/roles*']) !!}">

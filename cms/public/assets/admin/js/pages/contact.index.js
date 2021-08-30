@@ -16,7 +16,6 @@ jQuery(function ($) {
             {data: 'name', name: 'name', orderable: false},
             {data: 'phone', name: 'phone', orderable: false},
             {data: 'email', name: 'email', orderable: false},
-            {data: 'type', name: 'type', orderable: false},
             {data: 'created_at', name: 'created_at', orderable: false},
             {data: 'action', name: 'action', orderable: false, searchable: false}
         ],

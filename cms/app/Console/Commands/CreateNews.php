@@ -3,23 +3,24 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
+use App\Models\News;
+use Illuminate\Support\Str;
 
-class ClearThumbnails extends Command
+class CreateNews extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'images:clear-thumbnails';
+    protected $signature = 'command:create_news';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Clears thumbnails directory "/assets/images/thumbs" ';
+    protected $description = 'Create News" ';
 
     /**
      * Create a new command instance.
@@ -38,12 +39,15 @@ class ClearThumbnails extends Command
      */
     public function handle()
     {
-        $images_path = config('definitions.images_path');
-        $success = File::cleanDirectory(public_path("{$images_path}/thumbs"), true);
-        if ($success) {
-            $this->info('Cache cleared successfully!');
-        } else {
-            $this->error('Something went wrong!');
+        $news = News::latest()->first();
+        $number = 0;
+        for ($i = 1; $i < 20; $i++) {
+            $input = $news->toArray();
+            $input['name'] = "{$news->name} $i";
+            $input['slug'] = Str::slug("{$news->name} $i", '-');
+            News::create($input);
+            $number++;
         }
+        $this->info("Create {$number} done !");
     }
 }

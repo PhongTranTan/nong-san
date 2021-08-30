@@ -31,14 +31,14 @@ class NewsController extends Controller
             return abort('404');
         }
         $metadata = $news->meta;
-        $related_news = $this->news->getRelated($news->id);
+        $newsRela = $this->news->getRelated($news->id);
         $newsCategories = $this->newsCategory
             ->datatable()
             ->active()
             ->get();
         return view('frontend.news.detail', compact(
             'news', 
-            'related_news', 
+            'newsRela', 
             'metadata',
             'newsCategories'
         ));

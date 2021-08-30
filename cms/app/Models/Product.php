@@ -32,7 +32,8 @@ class Product extends Model
         'locale',
         'name',
         'slug',
-        'description'
+        'description',
+        'content'
     ];
 
     public $slug_from_source = 'name';
@@ -45,5 +46,15 @@ class Product extends Model
     public function scopePosition($query)
     {
         return $query->orderBy('display_order');
+    }
+    
+    public function scopeSortDesc($query)
+    {
+        return $query->orderBy('id','DESC');
+    }
+
+    public function scopeHighlight($query)
+    {
+        return $query->where('highlight', 1);
     }
 }

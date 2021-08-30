@@ -35,7 +35,9 @@ return [
         'whatsapp' => 'Whatsapp',
         'description_vipp_showflat' => 'Description VVIP Showflat',
         'message_schedule_tour' => 'Message Schedule Tour',
-        'message_vvip_registration' => 'Message VVIP Registrationb'
+        'message_vvip_registration' => 'Message VVIP Registrationb',
+        'contact_title'=> 'Contact Title',
+        'contact_description'=> 'Contact Description'
     ],
     'website_info' => 'Website info',
     'social' => 'Social'

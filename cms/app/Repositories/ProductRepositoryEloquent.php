@@ -57,4 +57,17 @@ class ProductRepositoryEloquent extends BaseRepository implements ProductReposit
         $projects =  $this->model->orderBy('display_order')->get();
         return $projects;
     }
+
+    public function getRelated($id){
+        $product = Product::find($id);
+        return $this->model
+            ->whereNotIn('id', [
+                $id
+            ])
+            ->where('product_type_id', $product->product_type_id)
+            ->active()
+            ->sortDesc()
+            ->limit(15)
+            ->get();
+    }
 }

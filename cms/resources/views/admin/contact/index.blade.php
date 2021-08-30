@@ -30,7 +30,6 @@
                             <th>{!! trans("admin_contact.table.name") !!}</th>
                             <th>{!! trans("admin_contact.table.phone") !!}</th>
                             <th>{!! trans("admin_contact.table.email") !!}</th>
-                            <th>{!! trans("admin_contact.table.type") !!}</th>
                             <th>{!! trans("admin_contact.table.created_at") !!}</th>
                             <th width="150">{!! trans("admin_contact.table.action") !!}</th>
                         </tr>

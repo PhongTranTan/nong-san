@@ -23,41 +23,46 @@ class System extends Model implements Transformable
         'email',
         'address',
         'phone',
-
-        'google_analytic',
-        'chat_script',
-
         'facebook',
         'youtube',
         'linkedin',
         'whatsapp',
-
         'website_title',
         'website_description',
         'website_keywords',
-
-        'map_desktop',
-        'map_mobile',
         'logo',
-        'max_rooms',
-        'description_footer',
-
-        'description_schedule_showflat',
-        'description_vipp_showflat',
-        'message_vvip_registration',
-        'message_schedule_tour'
-        
+        'description_footer',  
+        'images',
+        'images_footer',
+        'contact_title',
+        'contact_description',
+        'ads'
     ];
+
+    // public function setContentAttribute($value)
+    // {
+    //     $this->attributes['content'] =  !empty($value) ? is_array($value) ? json_encode($value) : $value : null;
+    // }
 
     public function setContentAttribute($value)
     {
-        $this->attributes['content'] =  !empty($value) ? is_array($value) ? json_encode($value) : $value : null;
+        if (is_array($value)) {
+            $this->attributes['content'] = json_encode($value);
+        } else {
+            $this->attributes['content'] = $value;
+        }
     }
 
-    public function getContentAttribute($value)
+    public function getContentAttribute($string)
     {
-        return jsonContent($value);
+        $json = json_decode($string, true);
+        return (json_last_error() === JSON_ERROR_NONE) ? $json : $string;
     }
+
+    // public function getContentAttribute($value)
+    // {
+    //     return jsonContent($value);
+    // }
 
     public static function content($key, $default = null)
     {

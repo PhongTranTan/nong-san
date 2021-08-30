@@ -19,6 +19,9 @@ Route::group(
         Auth::routes();
     });
     Route::get('/', 'PageController@index')->name('page.home');
+    Route::post('contact', 'ContactController@postContact')->name('contact.post');
+    Route::get('tin-tuc/{slug}', 'NewsController@getNewsDetail')->name('news.detail');
+    Route::get('san-pham/{slug}', 'ProductController@getProductDetail')->name('product.detail');
     Route::get('{slug}', 'PageController@show')->name('page.show')->where('slug', '(.*)?');
 });
 
