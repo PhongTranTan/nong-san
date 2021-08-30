@@ -35,7 +35,7 @@
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="shop-cat-box">
                             <img class="img-fluid" src="{{ $productType->images ?? 'images/categories_img_01.jpg'}}" alt="" />
-                            <a class="btn hvr-hover" href="#">{{ $productType->name }}</a>
+                            <a class="btn hvr-hover" href="{{ getPageUrlByCode('SHOP') . '?cate='. $productType->id }}">{{ $productType->name }}</a>
                         </div>
                     </div>
                 @endforeach
@@ -61,7 +61,9 @@
                 @if(isset($news))
                     @foreach ( $news as $newsItem )
                         <div class="col-md-6 col-lg-4 col-xl-4">
-                            <div class="blog-box" style="cursor: pointer;" data-url="https://google.vn">
+                            <div class="blog-box" style="cursor: pointer;" 
+                                data-url="{{ route('news.detail', ['slug' => $newsItem->slug ]) }}"
+                            >
                                 <div class="blog-img">
                                     <img class="img-fluid" src="{{ $newsItem->images ?? 'images/blog-img-02.jpg'}}" alt="" />
                                 </div>
@@ -111,7 +113,9 @@
                 @if (isset($products))
                     @foreach ( $products as $key => $product)
                         @if ($key % 2 == 0)
-                            <div class="col-lg-3 col-md-6 special-grid best-seller">
+                            <div class="col-lg-3 col-md-6 special-grid best-seller"
+                                data-url="{{ route('product.detail', ['slug' => $product->slug]) }}"   
+                            >
                                 <div class="products-single fix">
                                     <div class="box-img-hover">
                                         <div class="type-lb">
@@ -135,7 +139,9 @@
                                 </div>
                             </div>
                         @else
-                            <div class="col-lg-3 col-md-6 special-grid top-featured">
+                            <div class="col-lg-3 col-md-6 special-grid top-featured"
+                                data-url="{{ route('product.detail', ['slug' => $product->slug]) }}"
+                            >
                                 <div class="products-single fix">
                                     <div class="box-img-hover">
                                         <div class="type-lb">
@@ -187,6 +193,11 @@
     <script>
         $(function() {
             $('.blog-box').on('click', function () {
+                var $url = $(this).attr('data-url');
+                window.location.href = $url;
+            });
+
+            $('.special-grid').on('click', function () {
                 var $url = $(this).attr('data-url');
                 window.location.href = $url;
             });
